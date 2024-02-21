@@ -1,0 +1,43 @@
+name: 'Configure frontend reusable action'
+description: 'Configure frontend reusable action'
+author: 'Gutenberg Technology'
+
+inputs:
+  path:
+    description: 'Path to the file to configure'
+    required: true
+    default: './'
+  env:
+    type: string
+    description: 'Environment to configure'
+    required: true
+    default: 'production'
+  env-file:
+    type: string
+    description: 'Path to the environment file'
+    required: true
+  artifact-name:
+    type: string
+    description: 'Name of the artifact to download'
+
+
+runs:
+  using: 'composite'
+  steps:
+    - name: 'Path'
+      run: echo ${{ inputs.path }}
+      shell: bash
+    - name: 'Env'
+      run: echo ${{ inputs.env }}
+      shell: bash
+    - name: 'Env-file'
+      run: echo ${{ inputs.env-file }}
+      shell: bash
+
+    - name: Download Artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ inputs.artifact-name }}
+
+    
+    
