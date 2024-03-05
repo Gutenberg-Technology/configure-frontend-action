@@ -34,10 +34,19 @@ runs:
       run: echo ${{ inputs.env-file }}
       shell: bash
 
+    - name: 'check pwd & ls'
+      run: pwd && ls -la
+      shell: bash
+
     - name: Download Artifact
       uses: actions/download-artifact@v4
       with:
         name: ${{ inputs.artifact-name }}
 
+    - name: untar Artifact
+      run: tar -xvf ${{ inputs.artifact-name }}.tar
+      shell: bash
     
-    
+    - name: 'check pwd & ls after untar'
+      run: pwd && ls -la
+      shell: bash
