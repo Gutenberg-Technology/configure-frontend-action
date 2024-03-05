@@ -52,6 +52,10 @@ runs:
       with:
         name: ${{ inputs.artifact-name }}-config-files
 
+    - name: Create config-files directory
+      run: mkdir -p ${{ inputs.path }}config-files
+      shell: bash
+
     - name: untar Config files Artifact
       run: tar -xvf ${{ inputs.artifact-name }}-config-files.tar -C ${{ inputs.path }}config-files
       shell: bash
