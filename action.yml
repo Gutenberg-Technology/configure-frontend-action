@@ -50,12 +50,16 @@ runs:
     - name: Download Config files Artifact
       uses: actions/download-artifact@v4
       with:
-        name: ${{ inputs.artifact-name }}-config-files
+        name: ${{ inputs.artifact-name }}-config-files -C ${{ inputs.path }}
 
     - name: untar Config files Artifact
-      run: tar -xvf ${{ inputs.artifact-name }}-config-files.tar
+      run: tar -xvf ${{ inputs.artifact-name }}-config-files.tar -C ${{ inputs.path }}/config-files
       shell: bash
    
     - name: 'check pwd & ls after untar'
       run: pwd && ls -la
+      shell: bash
+
+    - name: 'check pwd & ls after untar config files'
+      run: pwd && ls -la ${{ inputs.path }}/config-files
       shell: bash
