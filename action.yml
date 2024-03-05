@@ -53,7 +53,7 @@ runs:
         name: ${{ inputs.artifact-name }}-config-files
 
     - name: untar Config files Artifact
-      run: tar -xvf ${{ inputs.artifact-name }}-config-files.tar -C ${{ inputs.path }}/config-files
+      run: tar -xvf ${{ inputs.artifact-name }}-config-files.tar -C ${{ inputs.path }}config-files
       shell: bash
    
     - name: 'check pwd & ls after untar'
@@ -61,5 +61,5 @@ runs:
       shell: bash
 
     - name: 'check pwd & ls after untar config files'
-      run: pwd && ls -la ${{ inputs.path }}/config-files
+      run: pwd && ls -la ${{ inputs.path }}config-files
       shell: bash
