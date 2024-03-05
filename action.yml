@@ -44,13 +44,13 @@ runs:
         name: ${{ inputs.artifact-name }}
 
     - name: untar App Artifact
-      run: tar -xvf ${{ inputs.artifact-name }}.tar
+      run: tar -xvf ${{ inputs.artifact-name }}.tar -C ${{ inputs.path }}
       shell: bash
 
     - name: Download Config files Artifact
       uses: actions/download-artifact@v4
       with:
-        name: ${{ inputs.artifact-name }}-config-files -C ${{ inputs.path }}
+        name: ${{ inputs.artifact-name }}-config-files
 
     - name: untar Config files Artifact
       run: tar -xvf ${{ inputs.artifact-name }}-config-files.tar -C ${{ inputs.path }}/config-files
