@@ -54,9 +54,9 @@ runs:
       run: pwd && tree -L 3
       shell: bash   
 
-    # - name: Copy env config file
-    #   run: cp ${{ inputs.artifact-name }}-${{ inputs.env }}/${{ inputs.conf-source-file }} {{ inputs.artifact-name }}-${{ inputs.env }}/${{ inputs.conf-dest-file }}
-    #   shell: bash
+    - name: Copy env config file
+      run: cp ${{ inputs.config-source-path }} {{ inputs.artifact-name }}
+      shell: bash
 
     # - name: 'tree'
     #   run: pwd && tree -L 3
