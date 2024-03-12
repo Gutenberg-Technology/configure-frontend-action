@@ -51,11 +51,11 @@ runs:
       shell: bash
 
     - name: 'tree'
-      run: pwd && tree -L 3
+      run: pwd && tree -L 4
       shell: bash   
 
     - name: Copy env config file
-      run: cp ${{ inputs.config-source-path }} {{ inputs.artifact-name }}
+      run: cp ${{ inputs.config-source-path }} {{ inputs.config-dest-path }}
       shell: bash
 
     # - name: 'tree'
