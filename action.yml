@@ -34,7 +34,7 @@ runs:
         echo "env: ${{ inputs.env }}"
         echo "config-source-path: ${{ inputs.config-source-path }}"
         echo "config-dest-path: ${{ inputs.config-dest-path }}"
-        echo "artifact-name: ${{ artifact-name }}"
+        echo "artifact-name: ${{ inputs.artifact-name }}"
 
     - name: 'check pwd & ls'
       run: pwd && ls -la
