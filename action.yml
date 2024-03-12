@@ -28,18 +28,13 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Chec inputs
+    - name: Check inputs
         shell: bash
         run: |
-          echo "env: $env"
-          echo "conf-source-path: $conf-source-path"
-          echo "conf-dest-path: $conf-dest-path"
-          echo "artifact-name: $artifact-name"
-        env:
-          env: ${{ inputs.env }}
-          conf-source-path: ${{ inputs.conf-source-path }}
-          conf-dest-path: ${{ inputs.conf-dest-path }}
-          artifact-name: ${{ artifact-name }}
+          echo "env: ${{ inputs.env }}"
+          echo "conf-source-path: ${{ inputs.conf-source-path }}"
+          echo "conf-dest-path: ${{ inputs.conf-dest-path }}"
+          echo "artifact-name: ${{ artifact-name }}"
 
     - name: 'check pwd & ls'
       run: pwd && ls -la
