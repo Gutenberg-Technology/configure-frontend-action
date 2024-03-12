@@ -55,7 +55,7 @@ runs:
       shell: bash   
 
     - name: Copy env config file
-      run: cp ${{ inputs.config-source-path }} {{ inputs.config-dest-path }}
+      run: cp ${{ inputs.config-source-path }} ${{ inputs.config-dest-path }}
       shell: bash
 
     # - name: 'tree'
