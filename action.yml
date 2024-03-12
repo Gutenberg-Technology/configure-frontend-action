@@ -54,9 +54,17 @@ runs:
       run: pwd && tree -L 4
       shell: bash   
 
+    - name: 'cat ${{ inputs.config-dest-path }} before copy'
+      run: cat ${{ inputs.config-dest-path }}
+      shell: bash   
+
     - name: Copy env config file
       run: cp ${{ inputs.config-source-path }} ${{ inputs.config-dest-path }}
       shell: bash
+
+    - name: 'cat ${{ inputs.config-dest-path }} after copy'
+      run: cat ${{ inputs.config-dest-path }}
+      shell: bash  
 
     # - name: 'tree'
     #   run: pwd && tree -L 3
