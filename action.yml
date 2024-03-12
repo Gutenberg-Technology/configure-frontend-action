@@ -46,6 +46,10 @@ runs:
         name: ${{ inputs.artifact-name }}
         path: ${{ inputs.artifact-name }}-${{ inputs.env }}.tar
 
+    - name: 'check pwd & ls'
+      run: pwd && ls -la
+      shell: bash
+
     - name: untar App Artifact
       run: tar -xvf ${{ inputs.artifact-name }}-${{ inputs.env }}.tar
       shell: bash
