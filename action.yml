@@ -66,12 +66,9 @@ runs:
       run: cat ${{ inputs.config-dest-path }}
       shell: bash  
 
-    # - name: 'tree'
-    #   run: pwd && tree -L 3
-    #   shell: bash   
-
-    # - name: Archive dist env
-    #   run: |
-    #     tar -cvf ${{ github.workspace }}/${{ inputs.artifact-name }}.tar dist/${{ inputs.artifact-name }}
-    #     echo "artifact-name=${{ inputs.artifact-name }}" >> $GITHUB_OUTPUT
-    #   shell: bash
+    - name: 'Upload Archive ${{ inputs.artifact-name }}-${{ inputs.env }}'
+      uses: 'actions/upload-artifact@v4'
+      with:
+        name: ${{ inputs.artifact-name }}-${{ inputs.env }}
+        path: ${{ inputs.artifact-name }}-${{ inputs.env }}
+        if-no-files-found: error
